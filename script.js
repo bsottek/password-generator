@@ -1,8 +1,33 @@
 // Assignment code here
-var criteriaInput = function(){
-  var passLength = "";
 
-  while (passLength ==="" || passLength === null || passLength < 8 || passLength > 128 || isNaN(passLength) ){
+var generatePassword = function(){
+  var charLower = "abcdefghijklmnopqrstuvwxyz";
+  var charUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var charNumeric = "1234567890";
+  var charSpecial = " !#$%&()*+,-./:;<=>?@[\]^_`{|}~";
+  var allChar = charLower + charUpper + charNumeric + charSpecial;
+
+  console.log(allChar);
+
+  criteriaInput();
+
+  var password = "";
+
+  for (var i = 0; i < passLength; i++){
+    //random number to use as index for character selection
+    var randomNum = Math.floor(Math.random() * allChar.length);
+
+    //append selected character to password
+    password += allChar[randomNum];
+  }
+
+  console.log(password);
+}
+
+var criteriaInput = function () {
+  passLength = "";
+
+  while (passLength === "" || passLength === null || passLength < 8 || passLength > 128 || isNaN(passLength)) {
     passLength = prompt("How long would you like your password to be? Please enter a number between 8 and 128.");
   }
 
@@ -10,7 +35,7 @@ var criteriaInput = function(){
 
   passLowerCase = "";
 
-  while (passLowerCase === "" || passLowerCase === null){
+  while (passLowerCase === "" || passLowerCase === null) {
     passLowerCase = confirm("Would you like to include lowercase?");
   }
 
@@ -32,14 +57,12 @@ var criteriaInput = function(){
     passSpecial = confirm("Would you like to include special values?");
   }
 
-  if(passSpecial == false & passLowerCase == false & passUpperCase == false & passNumeric == false){
+  if (passSpecial == false & passLowerCase == false & passUpperCase == false & passNumeric == false) {
     alert("Please select at least one character type to use.")
     criteriaInput();
   }
 
 }
-
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
