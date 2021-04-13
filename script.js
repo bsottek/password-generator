@@ -14,7 +14,7 @@ var generatePassword = function(){
     password += allChar[randomNum];
   }
 
-  console.log(password);
+  return(password);
 }
 
 var criteriaInput = function () {
