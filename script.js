@@ -1,13 +1,6 @@
 // Assignment code here
 
 var generatePassword = function(){
-  var charLower = "abcdefghijklmnopqrstuvwxyz";
-  var charUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var charNumeric = "1234567890";
-  var charSpecial = " !#$%&()*+,-./:;<=>?@[\]^_`{|}~";
-  var allChar = charLower + charUpper + charNumeric + charSpecial;
-
-  console.log(allChar);
 
   criteriaInput();
 
@@ -62,6 +55,26 @@ var criteriaInput = function () {
     criteriaInput();
   }
 
+  var charLower = "abcdefghijklmnopqrstuvwxyz";
+  var charUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var charNumeric = "1234567890";
+  var charSpecial = " !#$%&()*+,-./:;<=>?@[\]^_`{|}~";
+  allChar = "";
+
+  if(passLowerCase == true){
+    allChar += charLower;
+  }
+  if(passUpperCase == true ){
+    allChar += charUpper;
+  }
+  if (passNumeric == true) {
+    allChar += charNumeric;
+  }
+  if (passSpecial == true) {
+    allChar += charSpecial;
+  }
+
+  console.log(allChar);
 }
 
 // Get references to the #generate element
